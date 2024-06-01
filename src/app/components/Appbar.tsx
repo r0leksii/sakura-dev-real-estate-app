@@ -1,7 +1,7 @@
-'use client'
-import React from 'react'
+"use client";
+import React from "react";
 
-import { HomeModernIcon } from '@heroicons/react/16/solid'
+import { HomeModernIcon } from "@heroicons/react/16/solid";
 import {
   Button,
   Link,
@@ -12,39 +12,42 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-} from '@nextui-org/react'
+} from "@nextui-org/react";
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const Appbar = ({ children }: Props) => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
-    <Navbar className={'shadow-md'} onMenuOpenChange={setIsMenuOpen}>
+    <Navbar className={"shadow-md"} onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          className={'sm:hidden'}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className={"sm:hidden"}
         />
         <NavbarBrand>
           <Link
             className={
-              'flex gap-1 items-center text-primary-400 hover:text-primary-600 transition-colors'
+              "flex items-center gap-1 text-primary-400 transition-colors hover:text-primary-600"
             }
-            href={'/'}
+            href={"/"}
           >
-            <HomeModernIcon className={'w-16'} />
-            <p className={'font-bold text-inherit'}>OR Real Estate</p>
+            <HomeModernIcon className={"w-16"} />
+            <p className={"font-bold text-inherit"}>OR Real Estate</p>
           </Link>
         </NavbarBrand>
       </NavbarContent>
-      <NavbarContent className={'hidden sm:flex gap-4'} justify={'center'}></NavbarContent>
-      <NavbarContent justify={'end'}>{children}</NavbarContent>
+      <NavbarContent
+        className={"hidden gap-4 sm:flex"}
+        justify={"center"}
+      ></NavbarContent>
+      <NavbarContent justify={"end"}>{children}</NavbarContent>
       <NavbarMenu></NavbarMenu>
     </Navbar>
-  )
-}
+  );
+};
 
-export default Appbar
+export default Appbar;
