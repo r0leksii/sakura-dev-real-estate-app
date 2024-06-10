@@ -34,6 +34,9 @@ const UserProfilePanel = ({ user }: Props) => {
         <DropdownItem key={'profile'}>
           <Link href={'/user/profile'}>Profile</Link>
         </DropdownItem>
+        <DropdownItem key={'properties'}>
+          <Link href={'/user/properties'}>Properties</Link>
+        </DropdownItem>
         <DropdownItem color={'danger'} key={'logout'}>
           <LogoutLink>Log Out</LogoutLink>
         </DropdownItem>
