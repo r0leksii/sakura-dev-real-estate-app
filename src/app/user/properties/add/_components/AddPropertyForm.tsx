@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 import Contact from '@/app/user/properties/add/_components/Contact'
 import Picture from '@/app/user/properties/add/_components/Picture'
@@ -59,9 +60,10 @@ const AddPropertyForm = (props: Props) => {
 
     try {
       await saveProperty(data, imageUrls, user?.id!)
+      toast.success('Property added successfully')
       redirect('/user/properties')
-    } catch (e) {
-      console.error(e)
+    } catch (error) {
+      console.error({ error })
     }
   }
 

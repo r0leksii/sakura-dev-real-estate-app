@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import React, { ReactNode } from 'react'
+import { ToastContainer } from 'react-toastify'
 
 import Appbar from '@/app/components/Appbar'
 import { Providers } from '@/app/components/providers'
@@ -8,6 +9,7 @@ import SignInPanel from '@/app/components/signInPanel'
 import { Inter } from 'next/font/google'
 
 import './globals.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,6 +31,7 @@ export default function RootLayout({
             <SignInPanel />
           </Appbar>
           {children}
+          <ToastContainer />
         </Providers>
       </body>
     </html>
