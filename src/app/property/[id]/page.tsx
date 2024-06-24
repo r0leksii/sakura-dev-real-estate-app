@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { ImagesSlider } from '@/app/components/ImageSlider'
 import PageTitle from '@/app/components/pageTitle'
 import { prisma } from '@/lib/prisma'
 import { Card } from '@nextui-org/react'
@@ -35,7 +36,13 @@ const PropertyPage = async ({ params }: Props) => {
       <div className={'p-4'}>
         <h2 className={'text-2xl font-bold text-primary my-5'}>{property.name}</h2>
         <div className={'grid grid-cols-1 lg:grid-cols-3 gap-10'}>
-          <div className={'col-span-2'}>{/*Todo: Put Image Carousel here*/}</div>
+          <div className={'col-span-2'}>
+            <ImagesSlider images={property.images.map(img => img.url)} overlay={false} />
+            <h2 className={'text-2xl font-bold text-gray-700 mt-7'}>
+              ${property.price} / {property.status.value}
+            </h2>
+            <p className={'text-sm text-slate-600 mt-7'}>{property.description}</p>
+          </div>
           <Card className={'p-5 flex flex-col gap-1'}>
             <Title title={'Features'} />
             <Attribute label={'Bedrooms'} value={property.feature?.bedrooms} />
